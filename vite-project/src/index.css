@@ -1,0 +1,127 @@
+:root {
+  --bg: #0f1724;
+  --card: rgba(20, 30, 48, 0.9);   /* darker, semi-opaque card for contrast */
+  --accent: #00b4d8;               /* brighter accent color */
+  --muted: #c9d6e2;                /* lighter muted text for readability */
+  --text: #ffffff;                 /* pure white text for high contrast */
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-image: url(https://ik.imagekit.io/dyp7q5hzjq/prev_comp.jpg?updatedAt=1762442318844);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+header h1 {
+  margin: 0 0 6px 0;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.search-form {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+  justify-content: center;
+}
+
+.search-form input {
+  flex: 1;
+  max-width: 700px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--text);
+  outline: none;
+  font-size: 16px;
+}
+
+.search-form button {
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.error {
+  color: #ffb4b4;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 8px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.meta {
+  padding: 8px 6px;
+}
+
+.meta h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.meta p {
+  margin: 6px 0 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.meta .score {
+  color: #90ee90;
+  font-size: 12px;
+}
+
