@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
@@ -7,15 +6,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
 app = Flask(__name__)
-CORS(app)  # enable CORS for local dev
+CORS(app) 
 
-# Load artifacts
 tfidf = joblib.load("model_artifacts/tfidf.joblib")
-vectors = joblib.load("model_artifacts/vectors_sparse.joblib")  # sparse matrix
+vectors = joblib.load("model_artifacts/vectors_sparse.joblib")  
 meta = pd.read_pickle("model_artifacts/meta.pkl")
 
-# Precompute normalized vectors? cosine_similarity with sklearn handles sparse
-# Build a title->index lookup
 title_to_index = {t.lower(): i for i, t in enumerate(meta['title'].values)}
 
 @app.route("/recommend", methods=["POST"])
@@ -36,14 +32,11 @@ def recommend():
     else:
         idx = title_to_index[title]
 
-    # compute similarity of this movie vector to all
     movie_vector = vectors[idx]
-    # cosine_similarity accepts sparse matrices
-    sims = cosine_similarity(movie_vector, vectors).flatten()  # array of floats
+    sims = cosine_similarity(movie_vector, vectors).flatten() 
 
-    # get top k (skip itself)
-    k = 6  # 1 extra to skip itself
-    top_idx = np.argsort(-sims)[:k]  # descending
+    k = 6  
+    top_idx = np.argsort(-sims)[:k] 
     results = []
     for i in top_idx:
         if i == idx:
