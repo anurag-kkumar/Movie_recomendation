@@ -21,15 +21,19 @@ A **Machine Learning-based Movie Recommendation System** that suggests similar m
 
 ---
 
-## 📂 Project Structure
-├── model_artifacts/ # Saved model & metadata
-├── vite-project/ # Frontend (React)
-├── app.py # Flask API
-├── main.py # Testing & experiments
-├── save_model.py # Model training
-├── tmdb_5000_movies.csv
-├── tmdb_5000_credits.csv
-└── README.md
+movie-recommendation-system/
+│
+├── model_artifacts/        # Saved model, similarity matrix, vectorizer
+├── vite-project/           # Frontend (React + Vite)
+│
+├── app.py                  # Flask API (backend server)
+├── main.py                 # Testing and experimentation
+├── save_model.py           # Model training script
+│
+├── tmdb_5000_movies.csv    # Movies dataset
+├── tmdb_5000_credits.csv   # Credits dataset
+│
+├── README.md               # Project documentation
 
 
 ---
